@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+   More information about options available in this configuration file, 
+   and Solr Core administration can be found online:
+   http://wiki.apache.org/solr/CoreAdmin
+-->
+<solr>
+
+    <logging>
+        <str name="class">org.apache.solr.logging.logback.LogbackWatcher</str>
+        <str name="enabled">true</str>
+        <watcher>
+            <int name="size">50</int>
+        </watcher>
+    </logging>
+
+    <shardHandlerFactory name="shardHandlerFactory"
+                         class="HttpShardHandlerFactory">
+        <int name="socketTimeout">${socketTimeout:5000}</int>
+        <int name="connTimeout">${connTimeout:5000}</int>
+    </shardHandlerFactory>
+</solr>
